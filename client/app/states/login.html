@@ -1,0 +1,36 @@
+
+<!-- Top Nav -->
+<topnav brand="User Admin"></topnav> <!-- passes the brand value to the topnav component template -->
+
+<!-- Login form -->
+<form class="form-horizontal" name="login">
+	<fieldset>
+		<legend class="col-sm-8 col-sm-offset-2">User Login</legend>
+		<!-- Username input box -->
+		<div class="form-group">
+			<label class="control-label col-sm-2 col-sm-offset-3" for="username">Username</label>
+			<div class="col-sm-3" ng-class="{'has-error has-feedback' : login.username.$touched && login.username.$invalid}">
+				<input class="form-control" ng-model="vm.username" type="text" id="username" name="username" placeholder="Please enter your username"  required>
+			</div>	
+		</div>
+		<!-- Password input box -->
+		<div class="form-group">
+			<label class="control-label col-sm-2 col-sm-offset-3" for="password">Password</label>
+			<div class="col-sm-3" ng-class="{'has-error has-feedback' : login.password.$touched && login.password.$invalid}">
+				<input class="form-control" ng-model="vm.password" type="password" id="password" name="password" placeholder="Please enter your password" required>
+			</div>	
+		</div>
+		<!-- Sign In button -->
+		<div class="form-group">
+			<div class="col-sm-offset-5 col-sm-10">
+				<button type="button" class="btn btn-primary" ng-disabled="login.$invalid" ng-click="vm.onLoginButtonClick() ">Sign In</button>
+			</div>
+		</div>
+		<!-- Register link -->
+		<div class="form-group">
+			<div class="col-sm-offset-5 col-sm-10">
+				<a ui-sref="registration">Register Now</a>
+			</div>
+		</div>
+	</fieldset>
+</form>

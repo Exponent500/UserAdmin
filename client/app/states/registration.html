@@ -1,0 +1,68 @@
+<!-- Top Nav -->
+<topnav brand="User Admin"></topnav> <!-- passes the brand value to the topnav component template -->
+
+<!-- User registration form -->
+<form class="form-horizontal" name="registration">
+	<fieldset>
+		<legend class="col-sm-8 col-sm-offset-2">User Registration</legend>
+		
+		<!-- First Name input box -->
+		<div class="form-group">
+			<label class="control-label col-sm-2 col-sm-offset-3" for="firstname">First Name</label>
+			<div class="col-sm-3" ng-class="{'has-error has-feedback' : registration.firstname.$touched && registration.firstname.$invalid}">
+				<input class="form-control" ng-model="vm.firstname" type="text" id="firstname" name="firstname" placeholder="First Name" required>
+			</div>		
+		</div>
+
+		<!-- Last Name input box -->
+		<div class="form-group">
+			<label class="control-label col-sm-2 col-sm-offset-3" for="lastname">Last Name</label>
+			<div class="col-sm-3" ng-class="{'has-error has-feedback' : registration.lastname.$touched && registration.lastname.$invalid}">
+				<input class="form-control" ng-model="vm.lastname" type="text" id="lastname" name="lastname" placeholder="Last Name" required>
+			</div>			
+		</div>
+
+		<!-- Email address input box -->
+		<div class="form-group">
+			<label class="control-label col-sm-2 col-sm-offset-3" for="emailaddress">Email address</label>
+			<div class="col-sm-3" ng-class="{'has-error has-feedback' : registration.emailaddress.$touched && registration.emailaddress.$invalid}">
+				<input class="form-control" ng-model="vm.emailaddress" type="email" id="emailaddress" name="emailaddress" placeholder="Email" required>
+			</div>		
+		</div>
+
+		<!-- User Name input box -->
+		<div class="form-group">
+			<label class="control-label col-sm-2 col-sm-offset-3" for="username">User Name</label>
+			<div class="col-sm-3" ng-class="{'has-error has-feedback' : registration.username.$touched && registration.username.$invalid}">
+				<input class="form-control" ng-model="vm.username" type="text" id="username" name="username" placeholder="Username" required>
+			</div>
+		</div>
+
+		<!-- Password input box -->
+		<div class="form-group">
+			<label class="control-label col-sm-2 col-sm-offset-3" for="password">Password</label>
+			<div class="col-sm-3" ng-class="{'has-error has-feedback' : registration.password.$touched && registration.password.$invalid}">
+				<input class="form-control" ng-model="vm.password" type="password" id="password" name="password" placeholder="Please enter your password" required>
+			</div>
+		</div>
+		<!-- Re-type Password input box -->
+		<div class="form-group">
+			<label class="control-label col-sm-2 col-sm-offset-3" for="retypepassword">Re-type Password</label>
+			<div class="col-sm-3" ng-class="{'has-error has-feedback' : registration.retypepassword.$touched && registration.retypepassword.$invalid}">
+				<input class="form-control" ng-model="vm.retypepassword" type="password" id="retypepassword" name="retypepassword" placeholder="Re-type Password" required>
+			</div>
+		</div>
+		<!-- Register button -->
+		<div class="form-group">
+			<div class="col-sm-offset-5 col-sm-10">
+				<button type="button" class="btn btn-primary" ng-click="vm.register()" ng-disabled="registration.$invalid">Register</button>
+			</div>
+		</div>
+		<!-- Login link -->
+		<div class="form-group">
+			<div class="col-sm-offset-5 col-sm-10">
+				<a ui-sref="login">Login</a>
+			</div>
+		</div>
+	</fieldset>
+</form>

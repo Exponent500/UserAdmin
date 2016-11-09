@@ -1,0 +1,73 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+    	
+    	<!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+        	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        	</button>
+            <a class="navbar-brand" ui-sref="home({username: vm.username, role: vm.role})"><b>User Admin</b></a>
+        </div>
+
+        <!-- Collect the nav links and other content for toggling -->
+        <div class="collapse-navbar-collapse" id="bs-example-navbar-collapse-1">
+        	<ul class="nav navbar-nav">
+        		<li><a ui-sref="usermanager({username: vm.username, role: vm.role})">User Manager</a></li>
+        		<li><a ui-sref="rolemanager({username: vm.username, role: vm.role})">Role Manager</a></li>
+        		<li class="active"><a ui-sref="userrolemanager({username: vm.username, role: vm.role})">User Role Manager</a></li>
+    		</ul>
+    		<ul class="nav navbar-nav navbar-right">
+                <li><a>{{vm.username}} | {{vm.role}}</a></li>
+                <li><a href="#">Sign Out</a></li>
+			</ul>
+		</div>
+    </div>
+</nav>
+
+<!-- User Roles Table -->
+<table class="table table-hover table-responsive">
+    <caption class="h3"><b>User Roles</b></caption>
+    <thead>
+        <td><b>#</b></td>
+        <td><b>User</b></td>
+        <td><b>Role</b></td>
+        <td><b>Last Updated</b></td>
+    </thead>
+    <tbody>
+        <tr ng-repeat="userroles in vm.usersWithTheirRoles">
+            <td>{{userroles.index}}</td>
+            <td>{{userroles.name}}</td>
+            <td>{{userroles.listOfRoles}}</td>
+            <td>{{userroles.dateCreated | date: 'MM-dd-yyyy'}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Edit User Roles button -->
+<div class="form-group">
+    <button class="btn btn-primary" type="button" ng-hide = "vm.editUserRolesForm" ng-click="vm.editUserRolesForm =!vm.editUserRolesForm">Edit User Roles</button>
+</div>
+
+<!-- Edit User Roles Form-->
+<div ng-show="vm.editUserRolesForm">
+    <!-- User Selection -->
+    <div class="form-group">
+        <label for="user">Select User</label>
+        <select class="form-control" ng-model="vm.userSelected" name="user" ng-options="user.userId as user.name for user in vm.usersWithTheirRoles" ng-change="vm.populateRoleDropDownList(vm.userSelected)" required>
+            <option value=""></option>
+        </select>
+    </div>
+    <!-- Role selection  -->
+    <div class="form-group">
+        <label for="role">Add/Remove Roles</label>
+        <div ng-dropdown-multiselect="" options="vm.roles" selected-model="vm.selectedRoles" extra-settings="vm.roleDropDownMenuSettings" events=""></div>
+    </div>
+</div>
+
+<!-- Done Editing button -->
+<div class="form-group">
+    <button class="btn btn-primary" type="button" ng-show="vm.editUserRolesForm" ng-click="vm.doneEditingUserRoles()">Done Editing</button>
+</div>
+

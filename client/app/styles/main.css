@@ -1,0 +1,22 @@
+
+.container {
+    padding-top: 35px;
+}
+
+.ng-cloak {
+	display:none;
+}
+
+body {
+	padding-top: 45px;
+	background: lightgray;
+}
+
+.fa {
+	color: black;
+	cursor: pointer;
+}
+
+.fa:hover {
+	color: blue;
+}

@@ -1,0 +1,27 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+    	
+    	<!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+        	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        	</button>
+            <a class="navbar-brand" ui-sref="home({username: vm.username, role: vm.role})"><b>User Admin</b></a>
+        </div>
+
+        <!-- Collect the nav links and other content for toggling -->
+        <div class="collapse-navbar-collapse" id="bs-example-navbar-collapse-1">
+        	<ul class="nav navbar-nav">
+        		<li><a ui-sref="usermanager({username: vm.username, role: vm.role})">User Manager</a></li>
+        		<li><a ui-sref="rolemanager({username: vm.username, role: vm.role})">Role Manager</a></li>
+        		<li><a ui-sref="userrolemanager({username: vm.username, role: vm.role})">User Role Manager</a></li>
+    		</ul>
+    		<ul class="nav navbar-nav navbar-right">
+                <li><a>{{vm.username}} | {{vm.role}}</a></li>
+    			<li><a href="#">Sign Out</a></li>
+			</ul>
+		</div>
+    </div>
+</nav>
